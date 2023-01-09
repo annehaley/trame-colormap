@@ -1,10 +1,10 @@
 {
-  "name": "vue-project",
+  "name": "trame-widget",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib src/use.js",
+    "build": "vue-cli-service build --target lib --filename trame-widget src/use.js",
     "lint": "vue-cli-service lint",
     "format": "vue-cli-service lint --fix"
   },

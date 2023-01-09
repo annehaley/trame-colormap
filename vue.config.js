@@ -1,7 +1,7 @@
 const { defineConfig } = require("@vue/cli-service");
 
 const path = require("path");
-const DST_PATH = "../trame_app/module/serve";
+const DST_PATH = "build";
 
 module.exports = defineConfig({
   transpileDependencies: ["vuetify"],
