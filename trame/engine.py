@@ -1,6 +1,3 @@
-from .vtk_pipeline import VtkPipeline
-
-
 DEFAULT_COLOR_MAP = [
     [15, 0, 0, 0],
     [75, 0, 1, 0],
@@ -16,13 +13,9 @@ DEFAULT_OPACITY_MAP = [
 ]
 
 
-def initialize(server, **kwargs):
-    state, ctrl = server.state, server.controller
-    state.trame__title = "Colormap Editor"
+def initialize(server, state, ctrl, vtk_pipeline, **kwargs):
     state.colormap_points = DEFAULT_COLOR_MAP
     state.opacity_points = DEFAULT_OPACITY_MAP
-
-    vtk_pipeline = VtkPipeline(kwargs['dataset_path'])
     state.histogram_data = vtk_pipeline.get_histogram_data(buckets=10)
 
     @state.change("colormap_points")
@@ -34,10 +27,6 @@ def initialize(server, **kwargs):
     def update_opacity(opacity_points, **kwargs):
         vtk_pipeline.update_opacity(opacity_points)
         ctrl.view_update()
-
-    @ctrl.set("get_render_window")
-    def get_render_window():
-        return vtk_pipeline.render_window
 
     @ctrl.set("reset_colormap_points")
     def reset_colormap_points(self):

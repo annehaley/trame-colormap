@@ -5,12 +5,17 @@ from pathlib import Path
 serve_path = str(Path(__file__).with_name("build").resolve())
 
 # Serve directory for JS/CSS files
-serve = {"__trame_app": serve_path}
+serve = {"__colormapper": serve_path}
 serve_files = os.listdir(serve_path)
 
-scripts = ['__trame_app/' + p for p in serve_files if str(p).endswith('.min.js')]
-styles = ['__trame_app/' + p for p in serve_files if str(p).endswith('.css')]
-
+scripts = [
+    '__colormapper/' + p for p in serve_files
+    if str(p).endswith('.js') or str(p).endswith('.js.map')
+]
+styles = [
+    '__colormapper/' + p for p in serve_files
+    if str(p).endswith('.css')
+]
 vuetify_config = {}
 vue_use = ["colormapper", ("trame_vuetify", vuetify_config)]
 
