@@ -9,8 +9,21 @@ pip install [path/to/this/repository]
 
 Invoke the trame Engine and UI classes for this widget in your trame project.
 ```
-from colormapper import engine as widget_engine
-from colormapper import ui as widget_ui
+from colormapper import engine as colormapper_engine
+...
+colormapper_engine.initialize(server, self.state, self.ctrl, self.vtk_pipeline)
+```
+
+```
+from colormapper.widget import ColormapEditor
+...
+ColormapEditor(
+    histogram_data=("histogram_data",),
+    colors=("colormap_points",),
+    opacities=("opacity_points",),
+    update_colors="colormap_points = $event",
+    update_opacities="opacity_points = $event",
+)
 ```
 
 Run the trame application (follow instructions for that project).
