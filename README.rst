@@ -1,4 +1,4 @@
-# Trame Widget: Colormap Editor
+# Trame Widget: File Browser
 This widget can be used in a trame project by the following procedure:
 
 Clone this repository to your machine.
@@ -15,15 +15,7 @@ colormapper_engine.initialize(server, self.state, self.ctrl, self.vtk_pipeline)
 ```
 
 ```
-from colormapper.widget import ColormapEditor
-...
-ColormapEditor(
-    histogram_data=("histogram_data",),
-    colors=("colormap_points",),
-    opacities=("opacity_points",),
-    update_colors="colormap_points = $event",
-    update_opacities="opacity_points = $event",
-)
+from colormapper.widget import ColorMapper
 ```
 
 Run the trame application (follow instructions for that project).

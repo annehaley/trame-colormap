@@ -1,7 +1,7 @@
 const { defineConfig } = require("@vue/cli-service");
 
 const path = require("path");
-const DST_PATH = "trame/build";
+const DST_PATH = "../colormapper/build";
 
 module.exports = defineConfig({
   transpileDependencies: ["vuetify"],
